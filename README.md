@@ -1,6 +1,6 @@
 # TodoMVC Angular TS-Redux
 
-* [TodoMVC](todomvc)
+* [TodoMVC](http://todomvc.com)
 * [React](https://facebook.github.io/react/)
 * [TS-Redux](https://github.com/ngfk/ts-redux)
 * [Redux](https://github.com/reactjs/redux)
