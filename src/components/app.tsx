@@ -69,17 +69,19 @@ export class TodoApp extends React.Component<{}, State> {
                         </ul>
                     </section>
                 }
-                <footer className="footer">
-                    <span className="todo-count"><strong>{this.activeCount}</strong> { this.activeCount == 1 ? 'item' : 'items' } left</span>
-                    <ul className="filters">
-                        <li><a href="#" className={this.state.filter === Filter.All       ? 'selected' : ''} onClick={_ => store.action('FILTER_SET').dispatch(Filter.All)}>All</a></li>
-                        <li><a href="#" className={this.state.filter === Filter.Active    ? 'selected' : ''} onClick={_ => store.action('FILTER_SET').dispatch(Filter.Active)}>Active</a></li>
-                        <li><a href="#" className={this.state.filter === Filter.Completed ? 'selected' : ''} onClick={_ => store.action('FILTER_SET').dispatch(Filter.Completed)}>Completed</a></li>
-                    </ul>
-                    {this.completedCount > 0 &&
-                        <button className="clear-completed" onClick={_ => store.action('TODO_CLEAN').dispatch(undefined) }>Clear completed</button>
-                    }
-                </footer>
+                {this.state.todos.length > 0 &&
+                    <footer className="footer">
+                        <span className="todo-count"><strong>{this.activeCount}</strong> { this.activeCount == 1 ? 'item' : 'items' } left</span>
+                        <ul className="filters">
+                            <li><a href="#" className={this.state.filter === Filter.All       ? 'selected' : ''} onClick={_ => store.action('FILTER_SET').dispatch(Filter.All)}>All</a></li>
+                            <li><a href="#" className={this.state.filter === Filter.Active    ? 'selected' : ''} onClick={_ => store.action('FILTER_SET').dispatch(Filter.Active)}>Active</a></li>
+                            <li><a href="#" className={this.state.filter === Filter.Completed ? 'selected' : ''} onClick={_ => store.action('FILTER_SET').dispatch(Filter.Completed)}>Completed</a></li>
+                        </ul>
+                        {this.completedCount > 0 &&
+                            <button className="clear-completed" onClick={_ => store.action('TODO_CLEAN').dispatch(undefined) }>Clear completed</button>
+                        }
+                    </footer>
+                }
             </section>
         );
     }
