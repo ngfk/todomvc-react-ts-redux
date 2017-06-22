@@ -5,6 +5,8 @@ import { Todo, Filter} from 'app/models';
 
 export class TodoApp extends React.Component<{}, State> {
 
+    private id = 0;
+
     constructor() {
         super();
         this.state = store.getState();
@@ -24,7 +26,7 @@ export class TodoApp extends React.Component<{}, State> {
             return;
 
         let input = event.currentTarget;
-        store.action('TODO_ADD').dispatch({ text: input.value });
+        store.action('TODO_ADD').dispatch({ id: this.id++, text: input.value });
         input.value = '';
     }
 
