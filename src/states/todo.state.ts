@@ -2,11 +2,11 @@ import { createReducer, ReducerBuilder } from '@ailurus/ts-redux';
 import { Todo } from 'app/models';
 
 export interface TodoActions {
-    'TODO_ADD': { id: number, text: string };
-    'TODO_REMOVE': number;
-    'TODO_TOGGLE': { id?: number, completed?: boolean };
-    'TODO_UPDATE': { id: number, text: string };
-    'TODO_CLEAN': undefined;
+    'TODO_ADD':    { id: string, text: string };
+    'TODO_REMOVE': { id: string };
+    'TODO_TOGGLE': { id?: string, completed?: boolean };
+    'TODO_UPDATE': { id: string, text: string };
+    'TODO_CLEAN':  undefined;
 }
 
 export const todo = new ReducerBuilder<Todo, TodoActions>()
@@ -37,20 +37,20 @@ export const todo = new ReducerBuilder<Todo, TodoActions>()
     .build();
 
 export const todos = createReducer<Todo[], TodoActions>([], {
-    TODO_ADD: (state, payload, action) => [
+    'TODO_ADD': (state, payload, action) => [
         ...state,
         todo({} as Todo, action)
     ],
-    TODO_REMOVE: (state, payload) => {
-        return state.filter(todo => todo.id !== payload);
+    'TODO_REMOVE': (state, payload) => {
+        return state.filter(todo => todo.id !== payload.id);
     },
-    TODO_TOGGLE: (state, payload, action) => {
+    'TODO_TOGGLE': (state, payload, action) => {
         return state.map(t => todo(t, action));
     },
-    TODO_UPDATE: (state, payload, action) => {
+    'TODO_UPDATE': (state, payload, action) => {
         return state.map(t => todo(t, action));
     },
-    TODO_CLEAN: (state, payload) => {
+    'TODO_CLEAN': (state, payload) => {
         return state.filter(todo => !todo.completed);
     }
 });

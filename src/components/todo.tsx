@@ -3,9 +3,9 @@ import * as Models from 'app/models';
 
 interface TodoProps {
     todo: Models.Todo;
-    onToggle?: (id: number) => void;
-    onRemove?: (id: number) => void;
-    onUpdate?: (id: number, oldValue: string, newValue: string) => void;
+    onToggle?: (id: string) => void;
+    onRemove?: (id: string) => void;
+    onUpdate?: (id: string, oldValue: string, newValue: string) => void;
 }
 
 interface TodoState {

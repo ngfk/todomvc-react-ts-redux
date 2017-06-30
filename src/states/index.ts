@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from '@ailurus/ts-redux';
 import { Filter, Todo } from 'app/models';
 import { FilterActions, filter } from './filter.state';
-import { TodoActions, todos } from './todos.state';
+import { TodoActions, todos } from './todo.state';
 
 export * from './filter.state';
-export * from './todos.state';
+export * from './todo.state';
 
 export interface State {
     readonly filter: Filter;

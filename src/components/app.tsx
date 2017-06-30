@@ -1,11 +1,11 @@
 import * as React from 'react';
+import * as uuid  from 'uuid';
+
 import { Todo as TodoComponent } from 'app/components';
 import { State, store } from 'app/states';
 import { Todo, Filter} from 'app/models';
 
 export class TodoApp extends React.Component<{}, State> {
-
-    private id = 0;
 
     constructor() {
         super();
@@ -26,7 +26,7 @@ export class TodoApp extends React.Component<{}, State> {
             return;
 
         let input = event.currentTarget;
-        store.action('TODO_ADD').dispatch({ id: this.id++, text: input.value });
+        store.action('TODO_ADD').dispatch({ id: uuid.v4(), text: input.value });
         input.value = '';
     }
 
@@ -65,7 +65,7 @@ export class TodoApp extends React.Component<{}, State> {
                                 <TodoComponent key={todo.id}
                                                todo={todo}
                                                onToggle={id => store.action('TODO_TOGGLE').dispatch({ id })}
-                                               onRemove={id => store.action('TODO_REMOVE').dispatch(id)} 
+                                               onRemove={id => store.action('TODO_REMOVE').dispatch({ id })} 
                                                onUpdate={(id, oldV, newV) => store.action('TODO_UPDATE').dispatch({ id, text: newV })} />
                             )}
                         </ul>
