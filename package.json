@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ngfk/todomvc-react-ts-redux#readme",
   "dependencies": {
-    "@ailurus/ts-redux": "^1.2.2",
+    "@ailurus/ts-redux": "^1.2.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "redux": "^3.7.1",
