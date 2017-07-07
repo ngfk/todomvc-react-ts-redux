@@ -28,9 +28,9 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "@types/react": "^15.0.34",
+    "@types/react": "^15.0.35",
     "@types/react-dom": "^15.5.1",
-    "@types/uuid": "^3.0.0",
+    "@types/uuid": "^3.3.28",
     "awesome-typescript-loader": "^3.2.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -44,8 +44,8 @@
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.2",
     "typescript": "^2.4.1",
-    "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.5.0"
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
   },
   "babel": {
     "presets": [
