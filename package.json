@@ -14,7 +14,7 @@
         "eject": "react-scripts-ts eject"
     },
     "dependencies": {
-        "@ngfk/ts-redux": "^1.4.1",
+        "@ngfk/ts-redux": "^1.4.2",
         "classnames": "^2.2.5",
         "react": "^15.6.1",
         "react-dom": "^15.6.1",
